@@ -1,0 +1,237 @@
+<!------------------------------------------------ LOGIN PAGE ------------------------------------------------>
+<script>//DM
+    //change text above login fields
+      $(".logged-out .vmeetlogin p.textColor").html("If you do not have a login, please contact  <a style='font-family: Text_Font !important;' href='mailto:dmartin@leoevents.com'>dmartin@leoevents.com.</a>");
+    
+    
+        // replaces login page logo --DM
+        $(".logged-out #dir_logo img").replaceWith("<img src='https://eventfinity-production-assets.s3.amazonaws.com/materials/1038711/original/LEO-Demo-Site_Website-Graphics_02_Login-Logo.png' alt='logo' />")
+    
+    const loginText = `<div class="loginHeader">
+      <h2>Event Attendee Login</h2>
+      <p>
+        Please log in with your email used during registration.
+    </p>
+    <p>
+        If you do not have a login, please contact  <a style='font-family: Text_Font !important;' href='mailto:dmartin@leoevents.com'>dmartin@leoevents.com</a>.
+      </p>
+    </div>`
+    
+      $(document).ready(function () {
+        $(loginText).prependTo(".logged-out div#content-block .container");
+        // $(".loginFooter").appendTo(".logged-out div#content-block .container");
+        $("form#klogin input#lf").attr("type", "text");
+      });
+    
+        // Removes classes from login button div for styling
+        $('.logged-out div.col-md-8.col-md-offset-4').addClass('login-btn-container')
+        $('.login-btn-container').removeClass('col-md-8 col-md-offset-4')
+    </script>
+    <!------------------------------------- NAV BAR CUSTOMIZATION ------------------------------------->
+    
+    <script>
+    
+      // adds nav-item div to nav bar
+      $("<li class='nav-item nav-id-111111'></li>").insertAfter( ".float-right .notifications-nav" );
+    
+      // adds logout icon to created div .nav-id-111111
+      $(".nav-id-111111").append( $( "<span class='logout-text nav-text'><i class='far fa-sign-out'></i></span>" ) );
+    
+      // wraps logout link around logout icon
+      $(".nav-id-111111 .logout-text").wrap( `<a class='nav-link' href='https://leoeventsvirtual.eventfinity.co/logout' onclick='event.preventDefault();document.getElementById("logout-form").submit();'></a>` );
+    
+      // adds timezone option to nav bar
+      $("<li class='nav-item nav-id-222222'></li>").insertBefore( ".float-right .notifications-nav" );
+      $("li.nav-id-222222").append( $(".nav-item.dropdown-item.nav-id-297132 .nav-link") );
+      $("li.nav-id-222222 a.nav-link span").html("<i class='far fa-clock'></i>");
+      $("li.nav-id-222222 a.nav-link span").addClass("nav-text");
+    
+      // opens nav bar dropdowns on hover instead of click 
+      $("#topNavDropdownMenu108044").hover(
+        function () {
+          $("#topNavDropdownMenu108044").next().addClass("open");
+          $("#topNavDropdownMenu108044").next().addClass("show");
+        },
+        function () {
+          $("#topNavDropdownMenu108044").next().removeClass("open");
+          $("#topNavDropdownMenu108044").next().removeClass("show");
+        }
+      );
+    
+      $("#topNavDropdownMenu108044")
+        .next()
+        .hover(
+          function () {
+            $("#topNavDropdownMenu108044").next().addClass("open");
+            $("#topNavDropdownMenu108044").next().addClass("show");
+          },
+          function () {
+            $("#topNavDropdownMenu108044").next().removeClass("open");
+            $("#topNavDropdownMenu108044").next().removeClass("show");
+          }
+        );
+    
+    $("#topNavDropdownMenu108054").hover(
+        function () {
+          $("#topNavDropdownMenu108054").next().addClass("open");
+          $("#topNavDropdownMenu108054").next().addClass("show");
+        },
+        function () {
+          $("#topNavDropdownMenu108054").next().removeClass("open");
+          $("#topNavDropdownMenu108054").next().removeClass("show");
+        }
+      );
+    
+      $("#topNavDropdownMenu108054")
+        .next()
+        .hover(
+          function () {
+            $("#topNavDropdownMenu108054").next().addClass("open");
+            $("#topNavDropdownMenu108054").next().addClass("show");
+          },
+          function () {
+            $("#topNavDropdownMenu108054").next().removeClass("open");
+            $("#topNavDropdownMenu108054").next().removeClass("show");
+          }
+        );
+    
+      // styles parent nav-item of active dropdown-item 
+      $(".dropdown-menu .active")
+        .closest(".dropdown-menu")
+        .siblings()
+        .css("color", "#ffffff");
+    </script>
+    
+    <script>
+        //make timezone option function in mobile nav --KW
+        $("#header-content li.nav-id-276232 a").attr(
+          "onclick",
+          "window.selectTimezoneOpen()"
+        );
+      </script>
+        
+        
+        <!------------------------------- PAGE HEADER REPLACEMENT & STYLING ------------------------------->
+        
+        <script>
+    
+            // removes color class from agenda page title for styling, see #agenda-homescreen-list in CSS
+            $("#agenda-homescreen-list .top-container .agenda-page-title").removeClass( "themePrimaryColorBackground" );
+            
+    
+    
+        </script>
+        
+        
+        <!-------------------------------------- STYLING FOR LIVESTREAM PAGE -------------------------------------->
+      <script>
+    
+            // manipulates existing bootstrap column sizing on livestream question box
+            $(".main-stage div[style='padding: 15px;'] .row>div.col-lg-4").addClass("live-question-container-row");
+            $( ".main-stage div[style='padding: 15px;'] .row>div.col-lg-4" ).removeClass("col-lg-4");
+            $(".main-stage .live-question-container-row").addClass("col-lg-12");
+            $( ".main-stage .question-plugin-container .question-plugin-content .row .col-12" ).addClass("col-6 anonymous-col");
+            $(".main-stage .anonymous-col").removeClass("col-12");
+    
+        </script>
+        
+        
+     <!--------------------------------- ATTENDEE & SPEAKER DIRECTORIES --------------------------------->
+    
+    <script>
+    
+    // adds new header div for styling 
+      $("<div class='newHeader'>ATTENDEES</div>").insertBefore($(".directories52351 .directory-page-title"))
+    
+        
+    // adds new header div for styling 
+      $("<div class='newHeader'>SPEAKERS</div>").insertBefore($(".directories52361 .directory-page-title"))
+    
+        
+        // adds 'SEARCH' text before search bar
+        $("<div class='searchLabel'>SEARCH</div>").insertBefore($("#dirSearch"));
+    
+        // replaces back text on individual attendee profile pages 
+        $(".directory-page-title .pull-left[href$='52351']").text("Back to Attendees")
+        
+        // replaces back arrow on individual attendee profile pages
+        $(".directory-page-title .pull-left[href$='52351']").prepend("<i class='fal fa-chevron-circle-left'></i>")
+    
+        // replaces back text on individual speaker profile pages --CE
+        $(".directory-page-title .pull-left[href$='52361']").text("Back to Speakers")
+        
+        // replaces back arrow on individual speaker profile pages --CE
+        $(".directory-page-title .pull-left[href$='52361']").prepend("<i class='fal fa-chevron-circle-left'></i>")
+    
+    </script>
+    
+    
+    <!--------------------------------------------------- AGENDA --------------------------------------------------->
+         
+    <script>
+    
+        // removes margins from agenda item elements 
+         $(".schedule-item-speakers").removeClass("m-t-20")     
+         $(".schedule-item-actions").removeClass("mt-3")
+         $(".speaker-item").removeClass("pb-3")
+         
+        // adds timezone info after date tabs 
+        $(".menu-items").append("<div class='timezone-info'>Agenda times are reflective of your computer's time zone settings. To adjust, please click the clock in the upper right corner of your browser.</div>")
+        
+    //add class to speaker names for styling
+    if ($(".day-agenda-items").length) {
+    $(".schedule-item-speakers .speaker-label").remove();
+    
+    const dashObj = $("span.speaker-title.dash")
+    const dashSib = dashObj[0].previousSibling
+    $(dashSib).wrap("<span class='speaker-name-span'></span>");
+    var nameText = $(".speaker-name-span").text().trim();
+    $(".speaker-name-span").text(nameText)
+    $(dashObj).replaceWith("<br>");
+    
+    $(".speaker-item > div.flex-fill").clone().addClass('speaker-bio-link-btn').appendTo($('.speaker-item'));
+    $(".speaker-bio-link-btn a").text("Speaker Bio");
+    $(".speaker-bio-link-btn").removeClass("flex-fill");
+    $(".speaker-name-span").unwrap();
+    
+    }
+    
+    
+       // adds new date text to agenda tabs (over hidden native date text) 
+       $("#day-1-menu a").prepend("<span class='newDate'>DAY ONE</span>")
+       $("#day-2-menu a").prepend("<span class='newDate'>DAY TWO</span>")
+    
+    
+    </script>
+    
+    <script>
+    $(".schedule-item-plugin-link a").attr("target","_blank");
+    </script>
+    
+    <!----------------------------------------------- SOCIAL WALL ----------------------------------------------->
+    
+    <script>
+      function likesConverter() {
+        $(".likes-count").each(function () {
+          var fullString = $(this).text().trim().split(" ");
+          $(this).text(fullString[0] + " votes");
+        });
+      }
+    
+      $(document).ready(function () {
+        // adds photoStreamContainer class to the div 2 beneath photo-stram-app which contains all posts - now called .psa__content.col-8.col-xs-12? or psa__card-container?
+        $( "#photo-stream-app div.col-xl-7.col-xl-offset-1.col-md-8.col-md-offset-1" ).addClass("photoStreamContainer col-xl-12");
+        // removes col-xl-7 and col-md-8 from same photoStreamContainer
+        $(".photoStreamContainer").removeClass("col-xl-7 col-md-8");
+        // adds social-add-button-container class to div above photo-stream-app - now called .psa__post-btn-container?
+        $("#photo-stream-app > div > div.col-md-3").addClass( "social-add-button-container" );
+        // move social add button to before the photostream
+        $(".social-add-button-container").insertBefore("#photo-stream-app");
+      });
+    
+     // $(window).load(function () {
+     //   likesConverter();
+     // });
+    var socialHeader = `<div class="newHeader">SOCIAL WALL</div>`
+    $(".photo-streams10361 #photostream-nav").replaceWith(socialHeader)
+    </script>

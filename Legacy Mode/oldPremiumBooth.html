@@ -1,0 +1,374 @@
+<style>
+	.boothContainer {
+		width: 100%; position: relative;
+	}
+	
+	.logged-in #content {
+		padding: 0;
+	}
+	
+	.logged-in #homescreen_content {
+		margin-top: 0;
+	}
+	
+	.material-container.contentBackground {
+		min-height: 100%;
+	}
+	
+	.library-container .material-container {
+		padding: 0; padding-left: 0; padding-right: 0;
+	}
+	
+	.boothContainer img {
+		width: 100%;
+	}
+	
+	.text-chat {
+		position: absolute; top: 40.8%; left: 73.6%; height: 44.7%; width: 13%;
+	}
+	
+	.text-chat .thePanel {
+		width: 100%; height: 100%; border: none;
+	}
+	
+	.vmeetLink {
+		position: absolute; top: 27.6%; left: 73.5%; height: 7.7%; width: 13%;
+	}
+	
+	.downloads {
+		position: absolute; top: 78.6%; left: 31.8%; height: 7.2%; width: 3.5%; border-radius: 50%;
+	}
+	
+	.downloads:hover {
+		cursor: pointer;
+	}
+	/***** MODAL STYLES *****/
+	
+	.modal {
+		display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto;
+	}
+	
+	.modal-content {
+		background-color: #fefefe; color: #232c61; margin: 15% auto; padding: 20px; border: 1px solid #232c61; border-radius: 10px; width: 40%;
+	}
+	
+	.modal-content a {
+		text-decoration: none; color: #232c61;
+	}
+	
+	.modal-content a:visited {
+		color: #232c61;
+	}
+	
+	.modal-content a:hover {
+		color: #26a3dd;
+	}
+	
+	.modal-content .download-file {
+		width: 100%; padding-top: .5em; padding-bottom: .5em;
+	}
+	
+	.close-button {
+		color: #aaa; text-align: right; font-size: 28px; font-weight: bold;
+	}
+	
+	.close-button:hover,
+	.close-button:focus {
+		color: black; text-decoration: none; cursor: pointer;
+	}
+	
+	.websiteLink {
+		position: absolute; top: 75.6%; left: 52.4%; height: 18%; width: 17.2%;
+	}
+	
+	.backButton {
+		position: absolute; top: 4.2%; left: 1%; width: 12.5%; height: 6.7%;
+	}
+	
+	.video-controls {
+		position: absolute; top: 12.2%; left: 64.5%; height: 20.4%; width: 3.5%;
+	}
+	
+	.video-controls div {
+		height: 23%; width: 62%; border-radius: 50%;
+	}
+	
+	.video-controls div#fullscreen-button {
+		position: relative; top: 8%; left: 10%; width: 68%; height: 26%;
+	}
+	
+	.video-controls div#next-button {
+		position: relative; top: 26.5%; left: 9%; width: 69%; height: 25%;
+	}
+	
+	.video-controls div:hover {
+		cursor: pointer;
+	}
+	
+	.vid-container {
+		position: absolute; top: 2%; left: 36.4%; width: 27.5%; height: 31.5%; padding: 0;
+	}
+	
+	div.vid-container iframe {
+		box-sizing: border-box; width: 100%; height: 100%; border: none; padding: 0; margin: 0;
+	}
+	
+	.more-videos {
+		position: absolute; top: 42%; left: 37.5%; height: 12%; width: 27.58%; display: flex; justify-content: space-around; align-items: center; overflow: hidden;
+	}
+	
+	.more-videos div {
+		width: 20%; height: 75%;
+	}
+	
+	.more-videos div a img {
+		height: 100%; opacity: .7;
+	}
+	
+	.more-videos img:hover {
+		cursor: pointer; opacity: 1;
+	}
+
+</style>
+
+<div class="boothContainer">
+	<img src="https://eventfinity-production-assets.s3.amazonaws.com/materials/1119231/original/LEO_DemoSite_ExhibitorShowcase_V1_Premium-Booth_BKG_1920x914.png">
+	<!--embedded chat feature from maestro-->
+	<div class="text-chat">
+		<div class="thePanel" id="maestro-iframe-container-standard"> </div>
+	</div>
+	<!-- vmeet link -->
+	<a href="https://leoeventsvirtual.eventfinity.co/vmeet/boothlivechat" target="_blank">
+		<div class="vmeetLink"></div>
+	</a>
+
+	<!-- downloads  -->
+	<!--opens pop-out download options-->
+	<div class="downloads booth-link" id="downloads-button"></div>
+	<div class="modal" id="downloads-modal">
+		<div class="modal-content">
+			<span class="close-button">&times;</span>
+
+			<h2>DOWNLOAD CENTER</h2>
+			<a download="" href="https://eventfinity-production-assets.s3.amazonaws.com/materials/1080901/original/Team-Safety-Minimum-Commitments-with-Acknowledgement-page.pdf" target="_blank">
+				<div class="download-file">
+					<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+					<span>Safety Download</span>
+				</div>
+			</a>
+			<a download="" href="https://eventfinity-production-assets.s3.amazonaws.com/materials/1080871/original/LEO-Events-White-Paper-Contracting-in-a-COVID-World.pdf" target="_blank">
+				<div class="download-file">
+					<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+					<span>COVID Download</span>
+				</div>
+			</a>
+		</div>
+	</div>
+	<!-- visit website  -->
+	<a href="https://leoevents.com/" target="_blank">
+		<div class="websiteLink"></div>
+	</a>
+	<!-- back button  -->
+	<a href="https://leoeventsvirtual.eventfinity.co/libraries/210938">
+		<div class="backButton"></div>
+	</a>
+	<!--video controls-->
+	<div class="video-controls">
+		<!--full screen-->
+		<div id="fullscreen-button"></div>
+		<!--next video-->
+		<div id="next-button"></div>
+	</div>
+
+	<!--featured video (embedded)-->
+	<div class="vid-container">
+		<iframe id="featured-video" name="featured-video" class="featured-video" title="Featured Video" src="https://player.vimeo.com/video/332310361" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+	</div>
+
+	<!--click a video to view as featured video-->
+	<div class="more-videos">
+		<div>
+			<a href="https://player.vimeo.com/video/363603252" id="one" target="featured-video">
+				<!-- thumbnail image of video -->
+				<img id="vimeo-363603252" src="" class="booth-link">
+				<!--<p class="videoTitle">TITLE</p>-->
+			</a>
+		</div>
+		<div>
+			<a href="https://player.vimeo.com/video/425258907" id="two" target="featured-video">
+				<!-- thumbnail image of video -->
+				<img id="vimeo-425258907" src="" class="booth-link">
+				<!--<p class="videoTitle">TITLE</p>-->
+			</a>
+		</div>
+		<div>
+			<a href="https://player.vimeo.com/video/332310361" id="three" target="featured-video">
+				<!-- thumbnail image of video -->
+				<img id="vimeo-332310361" src="" class="booth-link">
+				<!--<p class="videoTitle">TITLE</p>-->
+			</a>
+		</div>
+	</div>
+
+</div>
+
+<script>
+	$(document).ready(function()
+	{
+		if ($('#maestro-iframe-container-standard').length)
+		{
+			/*** Maestro API Integration ***/
+			let loginOptions = {
+				name: '[[first_name]] [[last_name]]',
+				service: 'leo_events_2',
+				thirdPartyAccountId: '[[event_attendee_id]]',
+				email: '[[event_attendee_id]]@eventfinity.co',
+				jwt: '[[json_web_token]]'
+			}
+			window.addEventListener('load', function()
+			{
+				var el = document.getElementById('maestro-iframe-container-standard')
+				window.Maestro = new window.MaestroIFrameSDK(
+				{
+					element: el,
+					slug: 'leoevents2/page-60afd38b655f597a03e03f56',
+					embed: 'theater'
+				});
+				window.Maestro.on('request:login', () =>
+				{
+					window.Maestro.login(loginOptions)
+				})
+				Maestro.render()
+				setTimeout(function loginMaestro()
+				{
+					window.Maestro.login(loginOptions)
+				}, 1000)
+			})
+		}
+	});
+
+</script>
+
+<script>
+	var modal = document.getElementById("downloads-modal");
+	var btn = document.getElementById("downloads-button");
+	var span = document.getElementsByClassName("close-button")[0];
+
+	btn.onclick = function()
+	{
+		modal.style.display = "block";
+	}
+
+	span.onclick = function()
+	{
+		modal.style.display = "none";
+	}
+
+	window.onclick = function(event)
+	{
+		if (event.target == modal)
+		{
+			modal.style.display = "none";
+		}
+	}
+
+</script>
+
+<!--fullscreen video functionality-->
+<script>
+	const video = document.getElementById("featuredVideo");
+	const fullscreenButton = document.getElementById("fullscreen-button");
+	fullscreenButton.addEventListener("click", function()
+	{
+		if (video.requestFullscreen)
+		{
+			video.requestFullscreen();
+		}
+		else if (video.mozRequestFullScreen)
+		{
+			/* Firefox */
+			video.mozRequestFullScreen();
+		}
+		else if (video.webkitRequestFullscreen)
+		{
+			/* Chrome, Safari & Opera */
+			video.webkitRequestFullscreen();
+		}
+		else if (video.msRequestFullscreen)
+		{
+			/* IE/Edge */
+			video.msRequestFullscreen();
+		}
+	});
+
+</script>
+
+<script>
+	let count = 1;
+
+	const one = document.getElementById("one");
+	const two = document.getElementById("two");
+	const three = document.getElementById("three");
+
+	$("#one").click(function()
+	{
+		count = 1
+	});
+	$("#two").click(function()
+	{
+		count = 0
+	});
+	$("#three").click(function()
+	{
+		count = 0;
+	});
+
+	const nextButton = document.getElementById("next-button");
+	nextButton.addEventListener("click", function()
+	{
+		if (count === 0)
+		{
+			one.click();
+			count = 1;
+		}
+		else if (count === 1)
+		{
+			two.click();
+			count = 2;
+		}
+		else if (count === 2)
+		{
+			three.click();
+			count = 0;
+		}
+	});
+
+</script>
+
+<script>
+	function vimeoLoadingThumb(id)
+	{
+		var url = "https://vimeo.com/api/v2/video/" + id + ".json?callback=showThumb";
+
+		var id_img = "#vimeo-" + id;
+		var script = document.createElement('script');
+		script.type = 'text/javascript';
+		script.src = url;
+
+		$(id_img).before(script);
+	}
+
+	function showThumb(data)
+	{
+		var id_img = "#vimeo-" + data[0].id;
+		$(id_img).attr('src', data[0].thumbnail_medium);
+	}
+
+	$(function()
+	{
+		vimeoLoadingThumb(363603252);
+		vimeoLoadingThumb(425258907);
+		vimeoLoadingThumb(332310361);
+	});
+
+</script>

@@ -1,0 +1,115 @@
+<style>
+	h3 {
+		color: white
+	}
+	/*----------- Remember To Box -------------- DM */
+	
+	.orangeBox {
+		margin-top: var(--hs-block-padding); background-color: #d0d2d3; text-align: center; overflow: scroll;
+	}
+	
+	.orangeBox .boxTitle {
+		color: #6A676C;
+	}
+	
+	.buttonGroup button {
+		background-color: #858289; border: 1px solid #858289; color: #d0d2d3; padding: 10px 5px; cursor: pointer; margin-bottom: 20px; width: 90%; font-size: 16px; font-weight: 500;
+	}
+	
+	.rememberCopy {
+		display: inline-block;
+	}
+	
+	.rememberCopy h1 {
+		font-weight: 700;
+	}
+	/*----box/hs agenda edits----KW*/
+	
+	#block4557 .froala-html {
+		display: flex;
+	}
+	
+	.buttonGroup button:hover {
+		background-color: #61676c; border-color: #6a676c; width: 92%;
+	}
+	
+	#block4557 .agenda-hs-things-container {
+		width: 66%; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-end;
+	}
+	
+	.orangeBox {
+		width: 32%; margin-right: 2%
+	}
+	
+	.hs-agenda-container {
+		display: flex; justify-content: space-between;
+	}
+	
+	.agenda-tile {
+		width: 32%;
+	}
+	
+	.agenda-tile:hover {
+		padding: 2px;
+	}
+	
+	.agenda-tile img {
+		width: 100%;
+	}
+	
+	@media only screen and (max-width: 896px) {
+		#block4557 .froala-html {
+			flex-direction: column;
+		}
+		.orangeBox.hs-wrap {
+			width: 100%;
+		}
+		#block4557 .agenda-hs-things-container {
+			width: 100%;
+		}
+	}
+
+</style>
+
+<div class="orangeBox hs-wrap">
+	<div class="boxTitle"><span class="rememberCopy">
+            <h1>REMEMBER TO:</h1>
+        </span>
+	</div>
+	<div class="buttonGroup">
+		<a class="boxButton" href="https://leoeventsvirtual.eventfinity.co/libraries/210948">
+			<button>Check Out Our Resources</button>
+		</a>
+		<a class="boxButton" href="https://leoeventsvirtual.eventfinity.co/schedule">
+			<button>
+				<div>Join a vMeet in the Agenda</div>
+
+			</button>
+		</a>
+		<a class="boxButton" href="https://leoeventsvirtual.eventfinity.co/libraries/210938">
+			<button>Visit the Exhibitor Showcase</button>
+		</a>
+	</div>
+</div>
+
+<div class="agenda-hs-things-container">
+
+	<h3> AGENDA AT A GLANCE </h3>
+	<div class="hs-agenda-container">
+		<div class="agenda-tile">
+			<a href="https://leoeventsvirtual.eventfinity.co/schedule">
+				<img src="https://eventfinity-production-assets.s3.amazonaws.com/materials/1165261/original/LEO-Demo-Site_Website-Graphics_01.png" alt="agenda">
+			</a>
+		</div>
+		<div class="agenda-tile">
+			<a href="https://leoeventsvirtual.eventfinity.co/schedule">
+				<img src="https://eventfinity-production-assets.s3.amazonaws.com/materials/1165271/original/LEO-Demo-Site_Website-Graphics_04_Agenda-Card_02.png" alt="agenda">
+			</a>
+		</div>
+		<div class="agenda-tile">
+			<a href="https://leoeventsvirtual.eventfinity.co/schedule">
+				<img src="https://eventfinity-production-assets.s3.amazonaws.com/materials/1165281/original/LEO-Demo-Site_Website-Graphics_04_Agenda-Card_03.png" alt="agenda">
+			</a>
+		</div>
+	</div>
+</div>

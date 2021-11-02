@@ -1,0 +1,254 @@
+<style>
+	.boothContainer {
+		width: 100%; position: relative;
+	}
+	
+	.logged-in #content {
+		padding: 0;
+	}
+	
+	.logged-in #homescreen_content {
+		margin-top: 0;
+	}
+	
+	.material-container.contentBackground {
+		min-height: 100%;
+	}
+	
+	.library-container .material-container {
+		padding: 0; padding-left: 0; padding-right: 0;
+	}
+	
+	.boothContainer img {
+		width: 100%;
+	}
+	
+	.videoContainer {
+		position: absolute; top: 25%; left: 36.5%; width: 28.8%; height: 34.5%; padding: .3%;
+	}
+	
+	div.videoContainer iframe {
+		box-sizing: border-box; width: 100%; height: 100%; border: none; padding: 0; margin: 0;
+	}
+	
+	.videoControls {
+		position: absolute; top: 65.7%; left: 48.3%; height: 8.9%; width: 4.4%;
+	}
+	
+	.videoControls div {
+		height: 100%; width: 100%; border-radius: 100%;
+	}
+	
+	.videoControls div:hover {
+		cursor: pointer;
+	}
+	
+	.backButton {
+		position: absolute; top: 2%; left: 1%; width: 12.5%; height: 6.7%;
+	}
+	
+	.downloads {
+		position: absolute; top: 58.6%; left: 14.3%; height: 9.5%; width: 4.5%; border-radius: 50%;
+	}
+	
+	.downloads:hover {
+		cursor: pointer;
+	}
+	/***** MODAL STYLES *****/
+	
+	.modal {
+		display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto;
+	}
+	
+	.modal-content {
+		background-color: #fefefe; color: #232c61; margin: 15% auto; padding: 20px; border: 1px solid #232c61; border-radius: 10px; width: 40%;
+	}
+	
+	.modal-content a {
+		text-decoration: none; color: #232c61;
+	}
+	
+	.modal-content a:visited {
+		color: #232c61;
+	}
+	
+	.modal-content a:hover {
+		color: #26a3dd;
+	}
+	
+	.modal-content .download-file {
+		width: 100%; padding-top: .5em; padding-bottom: .5em;
+	}
+	
+	.close-button {
+		color: #aaa; text-align: right; font-size: 28px; font-weight: bold;
+	}
+	
+	.close-button:hover,
+	.close-button:focus {
+		color: black; text-decoration: none; cursor: pointer;
+	}
+	
+	.websiteLink {
+		position: absolute; top: 67.6%; left: 17.8%; height: 9%; width: 4.5%; border-radius: 50%;
+	}
+	
+	.text-chat {
+		position: absolute; top: 26.8%; left: 73.4%; height: 49.7%; width: 15.2%;
+	}
+	
+	.text-chat .thePanel {
+		width: 100%; height: 100%; border: none;
+	}
+	
+	.vid-container {
+		position: absolute; top: 8.7%; left: 37%; width: 26.5%; height: 26.5%; padding: 0;
+	}
+	
+	div.vid-container iframe {
+		box-sizing: border-box; width: 100%; height: 100%; border: none; padding: 0; margin: 0;
+	}
+
+</style>
+
+<div class="boothContainer">
+	<img src="https://eventfinity-production-assets.s3.amazonaws.com/materials/1119221/original/LEO_DemoSite_ExhibitorShowcase_V1_Standard-Booth_BKG_1920x914.png">
+
+	<div class="videoContainer">
+		<iframe id="featuredVideo" class="eVideo" src="https://player.vimeo.com/video/425258907" data-type="asset" frameborder="0" allowfullscreen="" allow="autoplay; fullscreen" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+	</div>
+	<!--video controls-->
+	<div class="videoControls">
+		<!--full screen-->
+		<div id="fullscreen-button"></div>
+	</div>
+
+	<!-- back button  -->
+	<a href="https://leoeventsvirtual.eventfinity.co/libraries/210938">
+		<div class="backButton"></div>
+	</a>
+
+	<!--opens pop-out download options-->
+	<div class="downloads booth-link" id="downloads-button"></div>
+	<div class="modal" id="downloads-modal">
+		<div class="modal-content">
+			<span class="close-button">&times;</span>
+
+			<h2>DOWNLOAD CENTER</h2>
+			<a download="" href="https://eventfinity-production-assets.s3.amazonaws.com/materials/1080901/original/Team-Safety-Minimum-Commitments-with-Acknowledgement-page.pdf" target="_blank">
+				<div class="download-file">
+					<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+					<span>Safety Download</span>
+				</div>
+			</a>
+			<a download="" href="https://eventfinity-production-assets.s3.amazonaws.com/materials/1080871/original/LEO-Events-White-Paper-Contracting-in-a-COVID-World.pdf" target="_blank">
+				<div class="download-file">
+					<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+					<span>COVID Download</span>
+				</div>
+			</a>
+		</div>
+	</div>
+
+	<!-- visit website  -->
+	<a href="https://leoevents.com/" target="_blank">
+		<div class="websiteLink"></div>
+	</a>
+
+	<!--embedded chat feature from maestro-->
+	<div class="text-chat">
+		<div class="thePanel" id="maestro-iframe-container-standard"> </div>
+	</div>
+
+</div>
+
+<!--fullscreen video functionality-->
+<script>
+	const video = document.getElementById("featuredVideo");
+	const fullscreenButton = document.getElementById("fullscreen-button");
+	fullscreenButton.addEventListener("click", function()
+	{
+		if (video.requestFullscreen)
+		{
+			video.requestFullscreen();
+		}
+		else if (video.mozRequestFullScreen)
+		{
+			/* Firefox */
+			video.mozRequestFullScreen();
+		}
+		else if (video.webkitRequestFullscreen)
+		{
+			/* Chrome, Safari & Opera */
+			video.webkitRequestFullscreen();
+		}
+		else if (video.msRequestFullscreen)
+		{
+			/* IE/Edge */
+			video.msRequestFullscreen();
+		}
+	});
+
+</script>
+
+<script>
+	var modal = document.getElementById("downloads-modal");
+	var btn = document.getElementById("downloads-button");
+	var span = document.getElementsByClassName("close-button")[0];
+
+	btn.onclick = function()
+	{
+		modal.style.display = "block";
+	}
+
+	span.onclick = function()
+	{
+		modal.style.display = "none";
+	}
+
+	window.onclick = function(event)
+	{
+		if (event.target == modal)
+		{
+			modal.style.display = "none";
+		}
+	}
+
+</script>
+
+<script>
+	$(document).ready(function()
+	{
+		if ($('#maestro-iframe-container-standard').length)
+		{
+			/*** Maestro API Integration ***/
+			let loginOptions = {
+				name: '[[first_name]] [[last_name]]',
+				service: 'leo_events_2',
+				thirdPartyAccountId: '[[event_attendee_id]]',
+				email: '[[event_attendee_id]]@eventfinity.co',
+				jwt: '[[json_web_token]]'
+			}
+			window.addEventListener('load', function()
+			{
+				var el = document.getElementById('maestro-iframe-container-standard')
+				window.Maestro = new window.MaestroIFrameSDK(
+				{
+					element: el,
+					slug: 'leoevents2/page-60afb902d8c052c319c11848',
+					embed: 'theater'
+				});
+				window.Maestro.on('request:login', () =>
+				{
+					window.Maestro.login(loginOptions)
+				})
+				Maestro.render()
+				setTimeout(function loginMaestro()
+				{
+					window.Maestro.login(loginOptions)
+				}, 1000)
+			})
+		}
+	});
+
+</script>

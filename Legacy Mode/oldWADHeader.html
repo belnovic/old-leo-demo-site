@@ -1,0 +1,12 @@
+<script>
+    // Creates unique classes for pages:
+           var path = window.location.pathname
+           let rel = path.split("/");
+           let pathOne = rel[1]
+           let pathTwo = rel[2]
+           if (pathTwo === undefined) {
+                  pathTwo = "Page"
+           }
+           var uniqueClass = pathOne + pathTwo;
+           $("body").addClass(uniqueClass);
+</script>

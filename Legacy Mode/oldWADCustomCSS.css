@@ -1,0 +1,753 @@
+/*---------------------------------------------- FONT ASSIGNMENTS ----------------------------------------------*/
+
+@font-face {
+    font-family: Header_Font;
+    src: url("https://eventfinity-production-assets.s3.amazonaws.com/materials/1053381/original/Mark-Simonson---Proxima-Nova-Bold.otf"); /* Font for headers, h1 h2 etc*/
+  }
+  @font-face {
+    font-family: Text_Font;
+    src: url("https://eventfinity-production-assets.s3.amazonaws.com/materials/1053361/original/Mark-Simonson---Proxima-Nova.otf"); /* Font for blocks of text  */
+  }
+  @font-face {
+    font-family: SemiBold_Font;
+    src: url("https://eventfinity-production-assets.s3.amazonaws.com/materials/1053391/original/Mark-Simonson---Proxima-Nova-Semibold.otf"); /* Font for UI elements */
+  }
+  
+  @font-face {
+    font-family: Reg_Font;
+    src: url("https://eventfinity-production-assets.s3.amazonaws.com/materials/1053361/original/Mark-Simonson---Proxima-Nova.otf"); /* Font for REG elements */
+  }
+  
+  .fal,
+  .far,
+  .fas {
+    font-family: "Font Awesome 5 Pro" !important;
+  }
+  
+  * {
+    font-family: "Text_Font", sans-serif;
+  }
+  
+  body,
+  html,
+  a:link,
+  a:visited,
+  a.link {
+    font-family: "Text_Font", sans-serif !important;
+  }
+  
+  /*-------------------------------------------- LOGIN PAGE --------------------------------------------*/
+  
+  .logged-out .vmeetlogin h3,
+  .logged-out .vmeetlogin p,
+  .logged-out label,
+  .logged-out .remember-me-text,
+  .logged-out .forgot-password-link a {
+    color: #000000 !important;
+  }
+  
+  .logged-out .vmeetlogin h3 {
+    font-family: Header_Font, sans-serif;
+  }
+  
+  /*remove height constraint on login logo to increase size--KW (regular layout)*/
+  /*.logged-out #header-content #dir_logo img {
+    max-height: unset;
+  }*/
+  
+  /*IDENTIFIER LOGIN LAYOUT*/
+  
+  /*add top padding above login image*/
+  .logged-out #dir_logo {padding-top: 2rem;}
+  
+  /*add height constraint to login logo--KW*/
+  .logged-out #dir_logo img {max-width: 500px;}
+  
+  /*make panel background same color as login container--KW*/
+  .logged-out .panel {background-color: #d0d2d3; border: none; box-shadow: none;}
+  
+  /*keep input in the center regardless of screen width--KW*/
+  .logged-out .container .row > .col-md-8.col-md-offset-2 {margin: auto;}
+  
+  .loginHeader h2 {
+    text-transform: uppercase;
+    font-size: 20px;
+    text-align: center;
+  }
+  
+  .loginHeader p {
+    text-align: center;
+  }
+  
+  form#klogin input {
+    border-radius: 0px;
+    height: 50px;
+  }
+  
+  .login-btn-container {
+    text-align: center;
+    margin: auto;
+  }
+  
+  .login-btn-container button:hover {background-color: #525864 !important; border-color: #525864 !important;}
+  
+  @media only screen and (max-width: 896px) {
+  .logged-out #body-content {width: 100%;}
+  }
+  
+  
+  /*-------------------------------------------- GENERAL PAGE LAYOUT --------------------------------------------*/
+  
+  /* adds space around page content */
+  .logged-in #content {
+    padding: 0 10%;
+  }
+  
+  /* adds margin below nav bar */
+  .logged-in #homescreen_content {
+    margin-top: 2.5%;
+  }
+  
+  /* removes headers from library pages */
+  #attendeeWeb .single-library-header {
+    display: none !important;
+  }
+  
+  .hs-block .hero-image .image {
+    box-shadow: none;
+    margin-bottom: 2%;
+  }
+  
+  .agenda-hs-things-container h3 {
+    font-family: SemiBold_Font, sans-serif;
+  }
+  
+  .rememberCopy h1 {
+    font-family: Header_Font, sans-serif;
+  }
+  
+  /* Hiding weird scroll effect only chelsea can see - remember box  LT */
+  .orangeBox {
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .orangeBox::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+  
+  #question-container .question-plugin {
+    overflow: hidden !important;
+  }
+  
+  #question-container .question-plugin::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /*------------------------------------- NAV BAR CUSTOMIZATION -------------------------------------*/
+  
+  /* shrinks nav bar logo for padding --CE  */
+  .logged-in.web-homescreen.nav-top .navbar-collapse.collapse .top-logo .logo {
+    max-height: 60px;
+  }
+  
+  /* makes nav bar transparent & removes shadow */
+  .header-navbar {
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+  
+  /* keeps nav items on same line and spaces them */
+  .float-left {
+    flex-wrap: nowrap !important;
+    justify-content: space-evenly !important;
+  }
+  
+  /* sizes header nav bar links */
+  .nav-item span {
+    font-size: clamp(
+      10px,
+      0.99vw,
+      22px
+    ) !important; /*added min and max size and adjusted default-kw*/
+    font-family: "Header_Font";
+    font-weight: 900;
+  }
+  
+  /* styles hover, focus, and active nav links */
+  .header-navbar .nav-item a:hover,
+  .header-navbar .nav-item a:focus,
+  .header-navbar .nav-item.active a,
+  .header-navbar .nav-item .dropdown-toggle:hover,
+  .header-navbar .nav-item.active button {
+    border-bottom: 3px solid #6a676c !important;
+    color: #ee3524 !important;
+  }
+  
+  /* styles nav bar dropdown */
+  .header-navbar .nav-item .dropdown-menu {
+    background: #000000 !important;
+    line-height: 20px;
+    border: 0px;
+    box-shadow: unset;
+  }
+  
+  /* removes box shadow from notifications dropdown */
+  #notifications-container {
+    box-shadow: none !important;
+  }
+  
+  /* hides nav bar settings dropdown */
+  .settings-dropdown-toggle {
+    display: none !important;
+  }
+  
+  /* styles dropdown carets */
+  .header-navbar .dropdown-toggle::after {
+    position: absolute;
+    top: 11px;
+    margin-left: -1%;
+    font-size: 2.25vw;
+    content: "\f0d7" !important;
+    font-weight: 900;
+    color: #e3e4e4;
+    transform: scaleY(0.7); /*makes triangle more flat-KW*/
+  }
+  
+  /*style dropdown carat on hover--KW*/
+  .logged-in.web-homescreen.nav-top
+    .header-navbar
+    .nav-item
+    .dropdown-toggle:hover::after {
+    color: #ee3524;
+  }
+  
+  /*adds space to left of nav logo-KW*/
+  .logged-in.web-homescreen.nav-top .navbar-collapse.collapse .top-logo {
+    margin-left: 20px;
+  }
+  
+  /*styles nav setting symbols spacing to be more responsive-KW
+    .nav-top .header-navbar ul.nav.navbar-nav.float-right {
+      justify-content: space-around;
+      padding-left: 6%;
+    }*/
+  
+  ul.navbar-nav.float-right a.nav-link {
+    /*margin: 0 !important;*/
+    /*margin-top: 0.5rem !important;*/
+    cursor: pointer;
+  }
+  
+  /*change non-active nav link color--KW*/
+  .web-homescreen li.nav-section-title,
+  .web-homescreen .nav-text {
+    color: #e3e4e4;
+  }
+  
+  /*add border to bottom of nav--KW*/
+  .logged-in.web-homescreen.nav-top .navbar .navbar-wrapper {
+    border-bottom: 3px solid white;
+  }
+  
+  /*center nav text in li items--KW*/
+  .header-navbar .nav-item {
+    text-align: center;
+  }
+  
+  /*remove dropdown underline on hover-KW*/
+  .header-navbar .nav-item button.dropdown-toggle:hover {
+    border-bottom: 3px solid transparent !important;
+  }
+  
+  /*------------------------------------------- DIRECTORY PAGES -------------------------------------------*/
+  
+  /* styles container background */
+  #directory-list-page {
+    background-color: transparent;
+  }
+  
+  /* makes div containing search bar on directory pages transparent  */
+  .directory .directory-page-title {
+    background-color: transparent !important;
+  }
+  
+  /* removes color from page header */
+  .directory-page-title .webaccess-section-title {
+    background-color: transparent !important;
+  }
+  
+  /* hides directory name left of search bar */
+  .directory-name {
+    visibility: hidden !important;
+  }
+  
+  /* hides search bar elements */
+  .directory-search-right,
+  .directory-search-left,
+  .fa-search:before {
+    display: none !important;
+  }
+  
+  /* removes border from search bar */
+  input#dirSearch {
+    border: none !important;
+    background-color: #d0d2d3 !important;
+    color: #ffffff !important;
+  }
+  
+  /* widens search bar */
+  .directory-search-container .input-group {
+    width: 75% !important;
+  }
+  
+  /* styles text on attendee cards */
+  .card-title {
+    color: #000000 !important;
+    text-transform: uppercase;
+  }
+  
+  /* styles 'SEARCH' text rendered in script */
+  .searchLabel {
+    font-size: 18px;
+    padding-top: 1%;
+    color: #ffffff;
+    margin-right: 0.75rem;
+  }
+  
+  /* styles 'no matches' text */
+  .no-results,
+  .btn-clear-search-link {
+    color: white !important;
+  }
+  
+  .homescreen-content.directory .directory-list .card {
+    box-shadow: none;
+    background: #ffffff;
+  }
+  .card-meta {
+    color: #000000;
+  }
+  
+  .newHeader {
+    align-items: center;
+    background-color: transparent;
+    color: white;
+    border: 3px solid #c02326 !important;
+    display: flex;
+    font-size: 26px;
+    font-weight: 500;
+    height: 70px;
+    justify-content: center;
+    line-height: 50px !important;
+    margin: 7% auto 2%;
+    width: 325px;
+  }
+  
+  /*-----------------------------------DIRECTORY DETAIL PAGES-----------------------------------*/
+  .directory-detail-container .contentBackground,
+  .directory-detail-container .contentBackground > * {
+    background-color: #fff;
+  }
+  .homescreen-content.directory
+    .directory-detail-container
+    .directory-detail-info {
+    color: #000;
+  }
+  
+  /*---------------------------------------------- AGENDA ----------------------------------------------*/
+  
+  /* makes div containing search bar on agenda page transparent --see standard script in footer  */
+  #agenda-homescreen-list .top-container,
+  .agenda-page-title {
+    background-color: transparent !important;
+  }
+  
+  /* hides scroll arrows on agenda page */
+  #scrollRight,
+  #scrollLeft {
+    display: none;
+  }
+  
+  /* hides scroll line on agenda page  */
+  #agenda-homescreen-list
+    .top-container
+    .menu-wrapper
+    .mobile-menu
+    .menu-items
+    .pl-0:after {
+    display: none;
+  }
+  
+  /* hides unwanted elements  */
+  #agenda-homescreen-list .top-container .agenda-page-title,
+  #agenda-homescreen-list .menu-items .pl-0:after,
+  #scrollRight,
+  #scrollLeft,
+  .jump-to-next,
+  .speaker-label {
+    display: none !important;
+  }
+  
+  /* removes background color from behind date tabs  */
+  #agenda-homescreen-list .top-container,
+  #agenda-homescreen-list .top-container * {
+    background-color: transparent !important;
+  }
+  
+  /* styles top container */
+  .menu-items {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* styles dates container */
+  .menu-items .pl-0 {
+    width: 60%;
+  }
+  
+  /* styles timezone info rendered in scripts  */
+  .timezone-info {
+    align-items: center;
+    color: white;
+    display: flex;
+    font-weight: 500;
+    font-size: 1vw;
+    text-transform: uppercase;
+    white-space: normal;
+    width: 40%;
+  }
+  
+  /* styles agenda date tabs  */
+  #agenda-homescreen-list > div.top-container .mobile-menu .menu-items ul li {
+    background: linear-gradient(
+      65deg,
+      rgba(84, 82, 85, 1) 0%,
+      rgba(133, 130, 137, 1) 50%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    border: none;
+    height: 8vh;
+    line-height: 7.5vh;
+    margin-right: 2%;
+    width: 45%;
+  }
+  
+  /* styles active agenda date tab -*/
+  #agenda-homescreen-list
+    > div.top-container
+    .mobile-menu
+    .menu-items
+    ul
+    li#day-2-menu {
+    background: linear-gradient(65deg, #ee3524 0%, #c02326 100%);
+    border: none;
+  }
+  
+  /* styles active tab text */
+  .menu-items .active a span {
+    border-bottom: none !important;
+    color: white !important;
+  }
+  
+  /* changes date tabs text */
+  .agenda-nav-tab a span.themePrimaryColor {
+    visibility: hidden;
+  }
+  
+  /* styles new date text */
+  .newDate {
+    color: white !important;
+    font-size: 1.5vw !important;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+    font-family: Header_Font, sans-serif;
+  }
+  
+  /* styles background of agenda items  */
+  .agenda-item-row {
+    background-color: white;
+  }
+  
+  /* removes box shadow from agenda items  */
+  .schedule-item-card-content {
+    box-shadow: none;
+  }
+  
+  /* styles agenda item times  */
+  .agenda-item-start-end-time .fa-clock,
+  .agenda-item-timezone,
+  .agenda-start-end-time,
+  .schedule-item-description {
+    color: #858289 !important;
+    font-family: Reg_Font, sans-serif;
+  }
+  
+  /* styles agenda item title  */
+  .schedule-item-name span {
+    color: #545255 !important;
+    font-size: 1.75vw;
+    text-transform: uppercase;
+  }
+  
+  /* widens date div  */
+  #schedule-item-time {
+    min-width: 175px !important;
+    padding-top: 0.5%;
+  }
+  
+  /* brings timezone up to same line */
+  .schedule-item-date {
+    display: flex;
+  }
+  
+  /* styles timezone in agenda item  */
+  .agenda-item-timezone {
+    font-size: 13px !important;
+    padding-left: 3% !important;
+  }
+  
+  /* styles speaker circle*/
+  .detail-page-speaker-circle {
+    height: 100px;
+    width: 100px;
+  }
+  
+  /* separates speaker bubbles */
+  .speaker-item {
+    padding-bottom: 2%;
+  }
+  
+  /* styles speaker's name link */
+  .speaker-item .flex-fill a {
+    font-size: 1.2rem;
+    font-family: Reg_Font, sans-serif !important;
+    color: #858289;
+  }
+  
+  /* styles agenda join buttons */
+  .schedule-item-plugin-link a {
+    background-color: #858289 !important;
+    border: none !important;
+  }
+  
+  .schedule-item-plugin-link {
+    padding-bottom: 10px;
+  }
+  
+  .web-homescreen
+    #agenda-homescreen-list
+    .schedule-info-container-wrapper
+    .schedule-info-container {
+    padding: 0 !important;
+    background-color: white !important;
+  }
+  
+  /*make speakers two to a line and standardize picture sizes*/
+  .day-container .speakersOnly {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .day-container .speakersOnly .speaker-item {
+    width: 46%;
+    margin: 1%;
+    min-width: 255px;
+  }
+  .day-container .detail-page-speaker-circle {
+    height: 90px;
+    min-height: 90px;
+    width: 90px;
+    min-width: 90px;
+  }
+  
+  /* session title Font - LT */
+  .schedule-item-name span {
+    font-family: SemiBold_Font, sans-serif;
+  }
+  
+  #agenda-homescreen-list .agenda-list .speaker-bio-link-btn {
+    padding: 8px 40px;
+    color: white;
+    background-color: #ee3524;
+    min-width: 185px;
+    cursor: pointer;
+  }
+  #agenda-homescreen-list .agenda-list .textColor .speaker-bio-link-btn a {
+    font-family: SemiBold_Font, sans-serif !important;
+    text-transform: uppercase;
+    color: white;
+  }
+  .agenda-list .schedule-item-actions .btn.btn-primary {
+    padding: 8px 40px;
+    min-width: 185px;
+    text-transform: uppercase;
+    font-family: SemiBold_Font, sans-serif !important;
+  }
+  
+  /*adjust styling on speaker text to accommodate squishing two into one row*/
+  .day-container span.speaker-name-span {
+    font-family: Reg_Font, sans-serif !important;
+    color: #858289;
+  }
+  
+  /*media query so speakers display all info at small screen-sizes*/
+  @media only screen and (max-width: 957px) {
+    .day-container .speakersOnly .speaker-item {
+      width: 100%;
+    }
+  }
+  
+  /*----------------------------------------- PHOTOSTREAM ----------------------------------------- */
+  
+  /*photostream styling --DM*/
+  .photo-streams10361 .share-view-banner {
+    max-width: 60%;
+    display: block;
+    margin: auto;
+  }
+  
+  .photo-streams10361 .social-add-button-container {
+    margin: auto;
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .photo-streams10361 .social-add-button-container .show-modal-btn {
+    position: static !important;
+    border-radius: 0;
+    background-color: #6a676c;
+    align-items: baseline;
+    width: 12rem;
+  }
+  
+  .photo-streams10361 .social-add-button-container .show-modal-btn i {
+    background-color: transparent;
+    color: #fff;
+  }
+  
+  .photo-streams10361 .social-add-button-container .show-modal-btn span {
+    background-color: #6a676c;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: large;
+    white-space: nowrap;
+  }
+  
+  #photo-stream-app .photoStreamContainer {
+    columns: 3 auto;
+    padding-bottom: 50%;
+  }
+  
+  #photo-stream-app .photo-card[data-v-75785728] {
+    break-inside: avoid;
+    margin-top: 0 !important;
+  }
+  
+  .photo-card .initials {
+    display: none;
+  }
+  
+  .main-photo-header > *[data-v-75785728] {
+    margin: 1rem !important;
+  }
+  
+  .photo-card .header-content-container .photo-content {
+    padding: 0 0.5rem;
+  }
+  
+  .photo-footer[data-v-75785728] {
+    padding: 1rem !important;
+  }
+  
+  /*makes modal text show up*/
+  #photo-stream-app .modal-container {
+    color: #000;
+  }
+  
+  /*adds visual border around textarea in modal*/
+  #photo-stream-app textarea.form-control.photo-textarea {
+    border: 1px solid #e8e8e8;
+  }
+  
+  .photo-streams10361.logged-in #homescreen_content {
+    margin-top: 0;
+  }
+    
+  /*centers 'Make a post' button*/
+  .photo-stream div.social-add-button-container {
+    background-color: transparent; /*position: fixed;*/
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 1000;
+    width: 100%;
+    max-width: 100%; /*top: 200px;*/
+  }
+  
+  /*add padding to photo stream so that you can see top of cards at scroll 0*/
+  #photo-stream-app {
+    padding-top: 90px;
+  }
+  
+  /*styles photo stream container*/
+  #photo-stream-app .photoStreamContainer {
+    padding-bottom: 50%; /*display: flex; flex-wrap: wrap;*/
+  }
+  
+  /*styles photo card*/
+  .photoStreamContainer > div.photo-card {
+    margin: 0.5rem;
+    margin-top: 0;
+    height: fit-content;
+    color: #000;
+    border-radius: 5px;
+    break-inside: avoid-column;
+  }
+  
+  /*styles first level of child divs within photo cards to mimic border radius*/
+  .photoStreamContainer > div.photo-card > div {
+    border-radius: inherit;
+  }
+  
+  /*styles time since photo-card text*/
+  .photo-card div.time-since {
+    font-weight: 400 !important;
+  }
+  
+  /*styles tagged names so they don't go off the card*/
+  .photo-card .user-tags-row {
+    flex-wrap: wrap;
+  }
+  
+  /*styles likes text and icons*/
+  .likes-count-container[data-v-f0ebde30] {
+    color: var(--theme-content-bg-color);
+  }
+  
+  /*styles comment input so that post doesn't go off card*/
+  .photo-card .new-comment-form {
+    flex-wrap: wrap;
+  }
+  
+  .photo-card .new-comment-form input.new-comment-input {
+    background-color: #fff;
+    max-width: 100%;
+    border-radius: inherit;
+  }
+  
+  .photo-card .new-comment-form .new-comment-submit {
+    cursor: pointer;
+    border-radius: inherit;
+  }
+  
+  /*makes photo cards white*/
+  #photo-stream-app .contentBackground,
+  #photo-stream-app .contentBackground > * {
+    background-color: #fff;
+  }
+  
+  .social-add-button-container .fa-plus {
+    font-size: 20px;
+    padding: 8px 5px 0 0;
+  }

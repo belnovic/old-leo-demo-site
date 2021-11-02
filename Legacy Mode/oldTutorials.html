@@ -1,0 +1,120 @@
+<style>
+	.vod-page {
+		display: flex; height: 600px;
+	}
+	
+	.vod-player-container {
+		width: 75%; background-color: black; position: relative; display: flex; align-items: center; justify-content: center;
+	}
+	
+	.vod-player-container span {
+		color: #fff; font-family: Text_Font;
+	}
+	
+	.vod-player-container iframe {
+		width: 100%; height: 100%; box-sizing: border-box; border: none; position: absolute;
+	}
+	
+	.vod-library-container {
+		width: 25%; overflow: auto;/*padding: 0 1%;*/
+	}
+	
+	.vod-card {
+		width: 100%; margin: 1em 0; padding: .5em;
+	}
+	
+	.vod-card:first-child {
+		margin: 0;
+	}
+	
+	.vod-card:last-child {
+		margin: 0;
+	}
+	
+	.vod-card img {
+		max-width: 100%;
+	}
+	
+	.vod-card .vod-title {
+		font-family: Text_Family !important;
+	}
+
+</style>
+
+<div class="vod-page">
+	<div class="vod-player-container">
+		<span>PLEASE SELECT A VIDEO</span>
+		<iframe id="featured-vod" name="featured-vod" src="" allow="fullscreen;"></iframe>
+	</div>
+	<div class="vod-library-container"></div>
+</div>
+
+<script>
+	$(document).ready(function()
+	{
+		function vimeoLoadingThumb(id)
+		{
+			var url =
+				"https://vimeo.com/api/oembed.json?url=https%3A%2F%2Fvimeo.com%2F" +
+				id[0] +
+				"%2F" +
+				id[1];
+
+			$.ajax(
+			{
+				type: "GET",
+				url: url,
+				dataType: "jsonp",
+				success: function(data)
+				{
+					let thumbURL = data.thumbnail_url_with_play_button;
+					let titleText = data.title;
+					var id_img = "#vimeo-" + id[0];
+					$(id_img).attr("src", thumbURL);
+					var id_title = ".title-" + id[0];
+					$(id_title).text(titleText);
+				},
+			});
+		}
+
+		const vodLoading = () =>
+		{
+			$(".vod-player-container span").text();
+		}
+
+		var iframe = $('iframe')
+
+		function vimeoLoadingCard(id)
+		{
+			const url = `https://player.vimeo.com/video/${id[0]}`
+			const domEl = `<div class='vod-card'><a href=${url} target='featured-vod'><img id='vimeo-${id[0]}' data-title='title-${id[0]}' src=''><span class='title-${id[0]} vod-title'></span></a></div>`
+			$('.vod-library-container').append(domEl);
+		}
+
+		const idList = ["555340857/d6526b6d98", "555340971/12bedf2caa"]
+
+
+		$(function()
+		{
+			idList.forEach(id =>
+			{
+				const splitID = id.split("/")
+				vimeoLoadingThumb(splitID)
+				vimeoLoadingCard(splitID)
+			})
+		})
+
+		window.addEventListener('click', (e) =>
+		{
+			if (e.target.id.includes('vimeo'))
+			{
+				iframe.css('background-color', '#1a1a1a')
+				let videoSrc = 'https://player.vimeo.com/video/' + e.target.id.split('-')[1]
+				iframe.attr('src', videoSrc);
+				$('div.vod-card').css('background-color', 'transparent');
+				$(e.target).parents('.vod-card').css('background-color', '#efefef')
+			}
+		});
+	})
+
+</script>
